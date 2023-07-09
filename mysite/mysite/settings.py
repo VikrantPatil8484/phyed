@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-w26avkm1ud&y&bv&pw^1v$g4ijjlk@$mle4@xo9=x%v3wqtgkd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 
 # Application definition
@@ -60,13 +61,13 @@ INSTALLED_APPS = [
     'crispy_forms',
 ]
 
-SOCIAL_ACCOUNT_PROVIDERS={
-    "google":{
-        "SCOPE":[
+SOCIAL_ACCOUNT_PROVIDERS = {
+    "google": {
+        "SCOPE": [
             "profile",
             "email"
         ],
-        "AUTH_PARMS":{"access_type":"online"}
+        "AUTH_PARMS": {"access_type": "online"}
     }
 }
 
@@ -85,9 +86,9 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates2',BASE_DIR / 'templates',BASE_DIR / 'templates'/ 'account',
-                 os.path.join(BASE_DIR,'PHYED_JOBS-master/build'),
-                 os.path.join(BASE_DIR,'Phyed-course-master/')       
+        'DIRS': [BASE_DIR / 'templates2', BASE_DIR / 'templates', BASE_DIR / 'templates' / 'account',
+                 os.path.join(BASE_DIR, 'PHYED_JOBS-master/build'),
+                 os.path.join(BASE_DIR, 'Phyed-course-master/')
                  ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -161,8 +162,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'mysite/static',
-    os.path.join(BASE_DIR,'Phyed-course-master/build/static'),
-    os.path.join(BASE_DIR,'PHYED_JOBS-master/build/static')
+    os.path.join(BASE_DIR, 'Phyed-course-master/build/static'),
+    os.path.join(BASE_DIR, 'PHYED_JOBS-master/build/static')
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -171,7 +172,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-SITE_ID=4
+SITE_ID = 4
 
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
@@ -199,8 +200,8 @@ SOCIALACCOUNT_PROVIDERS = {
 
 # Managing Media
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-MEDIA_URL =  '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -227,3 +228,7 @@ SOCIALACCOUNT_QUERY_EMAIL = True
 
 ACCOUNT_SESSION_REMEMBER = True
 
+
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
